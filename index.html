@@ -1,0 +1,644 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sylvain Natarajan - Portfolio BTS SIO SISR</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Roboto, Arial, sans-serif;
+        }
+        
+        body {
+            background-color: #f8fafc;
+            color: #334155;
+            line-height: 1.6;
+        }
+        
+        /* Navigation */
+        .navbar {
+            background-color: #0f172a;
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+        
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            color: white;
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
+        
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        .nav-links a:hover {
+            color: #3b82f6;
+        }
+        
+        /* Sections communes */
+        .section {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 60px 20px;
+        }
+        
+        .section-title {
+            font-size: 2.2rem;
+            color: #0f172a;
+            margin-bottom: 2rem;
+            position: relative;
+            padding-bottom: 0.5rem;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 80px;
+            height: 4px;
+            background: #3b82f6;
+            border-radius: 2px;
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+            color: white;
+            padding: 80px 20px;
+            text-align: center;
+        }
+        
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .hero h2 {
+            font-size: 1.5rem;
+            color: #94a3b8;
+            margin-bottom: 1.5rem;
+            font-weight: 400;
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            color: #cbd5e1;
+        }
+        
+        .hero-button {
+            display: inline-block;
+            background-color: #3b82f6;
+            color: white;
+            padding: 1rem 2rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: background-color 0.3s;
+        }
+        
+        .hero-button:hover {
+            background-color: #2563eb;
+        }
+        
+        /* Grilles */
+        .grid-2 {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+        }
+        
+        .grid-3 {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+        }
+        
+        /* Cartes */
+        .card {
+            background: white;
+            border-radius: 12px;
+            padding: 1.8rem;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 30px rgba(0,0,0,0.1);
+        }
+        
+        .project-card {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+        }
+        
+        .project-content {
+            padding: 1.8rem;
+        }
+        
+        .project-tag {
+            display: inline-block;
+            background: #dbeafe;
+            color: #2563eb;
+            padding: 0.3rem 1rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+        
+        .project-tech {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin: 1rem 0;
+        }
+        
+        .tech-badge {
+            background: #f1f5f9;
+            color: #475569;
+            padding: 0.3rem 0.8rem;
+            border-radius: 6px;
+            font-size: 0.85rem;
+        }
+        
+        /* Compétences - Format carte */
+        .skill-card {
+            background: #f8fafc;
+            padding: 1.5rem;
+            border-radius: 10px;
+            border-left: 4px solid #3b82f6;
+            margin-bottom: 1rem;
+        }
+        
+        .skill-card h4 {
+            color: #0f172a;
+            margin-bottom: 0.5rem;
+        }
+        
+        .soft-skill {
+            background: #f8fafc;
+            padding: 1.5rem;
+            border-radius: 10px;
+            border-left: 4px solid #10b981;
+            margin-bottom: 1rem;
+        }
+        
+        /* Contact */
+        .contact-info {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .contact-icon {
+            width: 40px;
+            height: 40px;
+            background: #dbeafe;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #2563eb;
+        }
+        
+        /* Bouton CV amélioré */
+        .cv-download-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            background: linear-gradient(135deg, #0f172a, #1e293b);
+            color: white;
+            padding: 1rem 2.5rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+        }
+        
+        .cv-download-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(59, 130, 246, 0.4);
+            background: linear-gradient(135deg, #1e293b, #0f172a);
+        }
+        
+        /* Footer */
+        footer {
+            background: #0f172a;
+            color: white;
+            padding: 2rem 0;
+            text-align: center;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .grid-2, .grid-3 {
+                grid-template-columns: 1fr;
+            }
+            
+            .nav-links {
+                display: none;
+            }
+            
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+        }
+    </style>
+    <!-- Font Awesome pour les icônes -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">SN</div>
+            <div class="nav-links">
+                <a href="#accueil">Accueil</a>
+                <a href="#profil">Profil</a>
+                <a href="#projets">Projets</a>
+                <a href="#competences">Compétences</a>
+                <a href="#contact">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Accueil -->
+    <section id="accueil" class="hero">
+        <div class="hero-content">
+            <h1>Sylvain Natarajan</h1>
+            <h2>Étudiant BTS SIO SISR</h2>
+            <p>Passionné par les infrastructures IT, je recherche un stage de 6 semaines à partir de mai 2025 en administration réseaux et systèmes.</p>
+            <a href="#projets" class="hero-button">Découvrir mes projets</a>
+        </div>
+    </section>
+
+    <!-- Profil -->
+    <section id="profil" class="section">
+        <h2 class="section-title">Mon Profil</h2>
+        
+        <div style="display: flex; gap: 3rem; align-items: start; flex-wrap: wrap;">
+            <!-- Coordonnées sans photo -->
+            <div style="flex: 1; min-width: 300px;">
+                <div style="background: white; padding: 2rem; border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.05);">
+                    <h3 style="margin-bottom: 1.5rem; color: #0f172a;">Coordonnées</h3>
+                    
+                    <div style="margin-bottom: 1rem;">
+                        <i class="fas fa-map-marker-alt" style="color: #3b82f6; width: 25px;"></i>
+                        <span>Aulnay-sous-bois (93)</span>
+                    </div>
+                    
+                    <div style="margin-bottom: 1rem;">
+                        <i class="fas fa-phone" style="color: #3b82f6; width: 25px;"></i>
+                        <span>07 65 57 36 29</span>
+                    </div>
+                    
+                    <div>
+                        <i class="fas fa-envelope" style="color: #3b82f6; width: 25px;"></i>
+                        <span>sylvainnatarajan2@gmail.com</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Description détaillée -->
+            <div style="flex: 2;">
+                <div style="background: white; padding: 2rem; border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.05);">
+                    <h3 style="font-size: 1.5rem; margin-bottom: 1rem; color: #0f172a;">Qui suis-je ?</h3>
+                    
+                    <p style="margin-bottom: 1.5rem;">Étudiant en 1ère année de BTS SIO option SISR au <strong>Lycée Polyvalent de Cachan</strong> situé à Cachan.</p>
+                    
+                    <p style="margin-bottom: 1.5rem;">Passionné par les infrastructures réseaux et systèmes depuis mon plus jeune âge, j'ai développé des compétences concrètes à travers des projets scolaires et personnels. Curieux et rigoureux, je souhaite approfondir mes connaissances en milieu professionnel lors d'un stage de 6 semaines.</p>
+                    
+                    <h4 style="margin: 1.5rem 0 1rem; color: #0f172a;">Formation</h4>
+                    
+                    <div style="background: #f8fafc; padding: 1.5rem; border-radius: 8px;">
+                        <p><strong>BTS SIO Option SISR – 2024-2026</strong><br>
+                        Lycée Polyvalent de Cachan, Cachan</p>
+                        
+                        <ul style="margin-top: 1rem; margin-left: 1.5rem;">
+                            <li>Administration systèmes et réseaux</li>
+                            <li>Virtualisation et sécurité</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projets -->
+    <section id="projets" class="section" style="background-color: #f8fafc;">
+        <h2 class="section-title">Mes Projets</h2>
+        
+        <div class="grid-3">
+            <!-- Projet 1 : Active Directory - Date 2025 -->
+            <div class="project-card">
+                <div style="height: 200px; background: #0f172a; display: flex; align-items: center; justify-content: center; color: white; font-size: 4rem;">
+                    <i class="fas fa-server"></i>
+                </div>
+                <div class="project-content">
+                    <span class="project-tag">Active Directory</span>
+                    <h3 style="margin-bottom: 1rem;">Serveur Active Directory</h3>
+                    
+                    <p><strong>Rôle :</strong> Architecte structure organisationnelle</p>
+                    <p><strong>Équipe :</strong> 4 personnes | <strong>2025</strong></p>
+                    
+                    <div class="project-tech">
+                        <span class="tech-badge">Windows Server</span>
+                        <span class="tech-badge">PowerShell</span>
+                        <span class="tech-badge">GPO</span>
+                    </div>
+                    
+                    <ul style="margin: 1rem 0 1rem 1.2rem;">
+                        <li>Création de 5 Unités Organisationnelles</li>
+                        <li>Automatisation 5 comptes utilisateurs</li>
+                        <li>Stratégies de groupe (sécurité)</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <!-- Projet 2 : Inventaire - Date 2026 -->
+            <div class="project-card">
+                <div style="height: 200px; background: #1e293b; display: flex; align-items: center; justify-content: center; color: white; font-size: 4rem;">
+                    <i class="fas fa-desktop"></i>
+                </div>
+                <div class="project-content">
+                    <span class="project-tag">Gestion de parc</span>
+                    <h3 style="margin-bottom: 1rem;">Inventaire Automatisé</h3>
+                    
+                    <p><strong>Projet personnel</strong> | <strong>2026</strong></p>
+                    
+                    <div class="project-tech">
+                        <span class="tech-badge">PowerShell</span>
+                        <span class="tech-badge">Excel</span>
+                    </div>
+                    
+                    <ul style="margin: 1rem 0 1rem 1.2rem;">
+                        <li>30 postes analysés sur 4 salles</li>
+                        <li>Collecte CPU, RAM, stockage, GPU</li>
+                        <li>Préconisations d'amélioration</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <!-- Projet 3 : Lab Maison - Date 2025-2026 -->
+            <div class="project-card">
+                <div style="height: 200px; background: #2d3a4f; display: flex; align-items: center; justify-content: center; color: white; font-size: 4rem;">
+                    <i class="fas fa-network-wired"></i>
+                </div>
+                <div class="project-content">
+                    <span class="project-tag">Virtualisation</span>
+                    <h3 style="margin-bottom: 1rem;">Lab Maison Virtualisation</h3>
+                    
+                    <p><strong>Auto-formation</strong> | <strong>2025-2026</strong></p>
+                    
+                    <div class="project-tech">
+                        <span class="tech-badge">VirtualBox</span>
+                        <span class="tech-badge">Windows Server</span>
+                    </div>
+                    
+                    <ul style="margin: 1rem 0 1rem 1.2rem;">
+                        <li>Création de machines virtuelles</li>
+                        <li>Configuration réseau entre VMs</li>
+                        <li>Tests de connectivité</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Compétences -->
+    <section id="competences" class="section">
+        <h2 class="section-title">Mes Compétences</h2>
+        
+        <div class="grid-2">
+            <!-- Hard Skills au format carte -->
+            <div>
+                <div class="card">
+                    <h3 style="margin-bottom: 1.5rem; color: #0f172a;">💻 Hard Skills</h3>
+                    
+                    <div class="skill-card">
+                        <h4>Windows Server / Active Directory</h4>
+                        <p>Création d'UO, GPO, gestion utilisateurs</p>
+                    </div>
+                    
+                    <div class="skill-card">
+                        <h4>PowerShell</h4>
+                        <p>Scripts d'automatisation, création comptes</p>
+                    </div>
+                    
+                    <div class="skill-card">
+                        <h4>Virtualisation</h4>
+                        <p>VirtualBox, VMware (création et gestion VMs)</p>
+                    </div>
+                    
+                    <div class="skill-card">
+                        <h4>Python (les bases)</h4>
+                        <p>Notions fondamentales</p>
+                    </div>
+                    
+                    <div class="skill-card">
+                        <h4>SQL (notions)</h4>
+                        <p>Requêtes de base</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Soft Skills -->
+            <div>
+                <div class="card">
+                    <h3 style="margin-bottom: 1.5rem; color: #0f172a;">🤝 Soft Skills</h3>
+                    
+                    <div class="soft-skill">
+                        <h4>Autonomie</h4>
+                        <p>Projets personnels menés seul (lab maison, inventaire)</p>
+                    </div>
+                    
+                    <div class="soft-skill">
+                        <h4>Esprit d'équipe</h4>
+                        <p>Collaboration sur projet Active Directory à 4 personnes</p>
+                    </div>
+                    
+                    <div class="soft-skill">
+                        <h4>Rigueur</h4>
+                        <p>Documentation systématique des procédures</p>
+                    </div>
+                    
+                    <div class="soft-skill">
+                        <h4>Curiosité technique</h4>
+                        <p>Veille tech, auto-formation</p>
+                    </div>
+                    
+                    <h4 style="margin: 2rem 0 1rem;">Langues</h4>
+                    
+                    <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem;">
+                        <div style="text-align: center; padding: 1rem; background: #f8fafc; border-radius: 8px;">
+                            <strong>Tamoul</strong>
+                            <p>C2 (familial)</p>
+                        </div>
+                        <div style="text-align: center; padding: 1rem; background: #f8fafc; border-radius: 8px;">
+                            <strong>Anglais</strong>
+                            <p>B1 technique</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact avec CV intégré -->
+    <section id="contact" class="section" style="background-color: #f8fafc;">
+        <h2 class="section-title">Contact & Disponibilités</h2>
+        
+        <div style="max-width: 800px; margin: 0 auto;">
+            <div class="contact-info">
+                <div class="grid-2" style="gap: 2rem;">
+                    <div>
+                        <h3 style="margin-bottom: 1.5rem;">Me contacter</h3>
+                        
+                        <div class="contact-item">
+                            <div class="contact-icon"><i class="fas fa-phone"></i></div>
+                            <div>07 65 57 36 29</div>
+                        </div>
+                        
+                        <div class="contact-item">
+                            <div class="contact-icon"><i class="fas fa-envelope"></i></div>
+                            <div>sylvainnatarajan2@gmail.com</div>
+                        </div>
+                        
+                        <div class="contact-item">
+                            <div class="contact-icon"><i class="fas fa-map-marker-alt"></i></div>
+                            <div>Aulnay-sous-bois (93)</div>
+                        </div>
+                    </div>
+                    
+                    <div>
+                        <h3 style="margin-bottom: 1.5rem;">Disponibilités stage</h3>
+                        
+                        <div style="background: #dbeafe; padding: 1.5rem; border-radius: 8px; margin-bottom: 1rem;">
+                            <p><strong>Période :</strong> Mai 2025</p>
+                            <p><strong>Durée :</strong> 6 semaines</p>
+                            <p><strong>Type :</strong> Stage 1ère année BTS SIO</p>
+                        </div>
+                        
+                        <h4 style="margin: 1.5rem 0 1rem;">Recherche</h4>
+                        
+                        <ul style="margin-left: 1.2rem;">
+                            <li>Administration systèmes et réseaux</li>
+                            <li>Support informatique</li>
+                            <li>Découverte de la cybersécurité</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- BOUTON CV INTÉGRÉ AVEC LE NOUVEAU LIEN -->
+                <div style="text-align: center; margin-top: 2rem; padding-top: 2rem; border-top: 1px solid #e2e8f0;">
+                    <p style="margin-bottom: 1.5rem; font-size: 1.1rem;">📄 Télécharger mon CV complet</p>
+                    <a href="https://drive.google.com/file/d/1m5jjG3cJWzHmF3dnmdtl6WNTf2BvkE9z/view?usp=sharing" 
+                       target="_blank" 
+                       class="cv-download-btn">
+                        <i class="fas fa-file-pdf" style="font-size: 1.3rem; color: #ef4444;"></i>
+                        <span>Télécharger CV (PDF)</span>
+                        <i class="fas fa-download" style="font-size: 1rem; opacity: 0.8;"></i>
+                    </a>
+                    <p style="margin-top: 1rem; color: #64748b; font-size: 0.9rem;">
+                        Format PDF • Mis à jour février 2025
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Centres d'intérêt -->
+    <section class="section">
+        <h2 class="section-title">Centres d'intérêt</h2>
+        
+        <div class="grid-3">
+            <div class="card" style="text-align: center;">
+                <i class="fas fa-futbol" style="font-size: 3rem; color: #3b82f6; margin-bottom: 1rem;"></i>
+                <h3>Football / Basketball</h3>
+                <p></p>
+            </div>
+            
+            <div class="card" style="text-align: center;">
+                <i class="fas fa-music" style="font-size: 3rem; color: #3b82f6; margin-bottom: 1rem;"></i>
+                <h3>Musique</h3>
+                <p></p>
+            </div>
+            
+            <div class="card" style="text-align: center;">
+                <i class="fas fa-microchip" style="font-size: 3rem; color: #3b82f6; margin-bottom: 1rem;"></i>
+                <h3>Veille IT</h3>
+                <p></p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div style="max-width: 1200px; margin: 0 auto; padding: 0 20px;">
+            <p>© 2025 Sylvain Natarajan - Portfolio BTS SIO SISR</p>
+            <p style="margin-top: 1rem; color: #94a3b8;">Dernière mise à jour : Février 2025</p>
+        </div>
+    </footer>
+
+    <!-- Script pour navigation fluide -->
+    <script>
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                const targetSection = document.querySelector(targetId);
+                
+                window.scrollTo({
+                    top: targetSection.offsetTop - 80,
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>
