@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mon profil - Sylvain Natarajan</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: #f0f2f5; color: #1e1e2f; line-height: 1.6; }
+        nav { background-color: #2c3e50; padding: 1rem 0; }
+        .nav-container { max-width: 1100px; margin: 0 auto; padding: 0 20px; display: flex; justify-content: space-between; align-items: center; }
+        .logo { color: white; font-weight: bold; font-size: 1.3rem; text-decoration: none; }
+        .nav-links { display: flex; gap: 1.5rem; }
+        .nav-links a { color: #ecf0f1; text-decoration: none; font-weight: 500; transition: 0.3s; padding-bottom: 3px; }
+        .nav-links a:hover, .nav-links a.active { color: #3498db; border-bottom: 2px solid #3498db; }
+        .container { max-width: 1100px; margin: 0 auto; padding: 2rem 20px; }
+        section { background: white; border-radius: 10px; padding: 2rem; margin-bottom: 2rem; box-shadow: 0 2px 10px rgba(0,0,0,0.05); }
+        h2 { color: #2c3e50; border-bottom: 3px solid #3498db; padding-bottom: 0.5rem; margin-bottom: 1.5rem; font-size: 1.5rem; }
+        h3 { color: #2c3e50; margin-bottom: 0.5rem; font-size: 1.2rem; }
+        .grid-2 { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5rem; }
+        .info-box { background: #f8fafc; padding: 1.5rem; border-radius: 8px; border-left: 4px solid #3498db; }
+        footer { background: #2c3e50; color: white; text-align: center; padding: 2rem 0; margin-top: 2rem; }
+        @media (max-width: 768px) { .grid-2 { grid-template-columns: 1fr; } .nav-links { display: none; } }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <nav>
+        <div class="nav-container">
+            <a href="index.html" class="logo">Sylvain N.</a>
+            <div class="nav-links">
+                <a href="index.html">Accueil</a>
+                <a href="profil.html" class="active">Mon profil</a>
+                <a href="projets.html">Projets</a>
+                <a href="competences.html">Compétences</a>
+                <a href="veille.html">Veille</a>
+                <a href="contact.html">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <section>
+            <h2>Mon profil</h2>
+            <div class="info-box">
+                <p>🔧 Étudiant en 2ème année de BTS SIO SISR, je suis passionné par l'administration des infrastructures réseaux et la cybersécurité. Mon objectif : mettre mes compétences techniques au service d'une équipe IT tout en continuant à apprendre sur le terrain.</p>
+            </div>
+        </section>
+
+        <section>
+            <h2>🎓 Formation</h2>
+            <h3>BTS SIO Option SISR — 2025-2027</h3>
+            <p>Lycée Polyvalent de Cachan, Cachan</p>
+            <p style="margin-top: 1rem;">2ème année — En cours</p>
+            <p style="margin-top: 1rem; font-size: 0.95rem; color: #4a5568;">
+                Cours suivis : cybersécurité, administration systèmes et réseaux, virtualisation
+            </p>
+        </section>
+
+        <section>
+            <h2>💼 Expériences professionnelles</h2>
+            <div class="info-box" style="border-left-color: #27ae60;">
+                <h3>Stage BTS SIO SISR — Support et Gestion de Parc</h3>
+                <p style="color: #3498db; font-weight: bold;">Mai - Juin 2026 (6 semaines) | Crédit Agricole Technologies et Services</p>
+                <ul style="margin-top: 0.8rem; margin-left: 1.2rem; color: #4a5568;">
+                    <li>Gestion de parc matériel et mobilier dans les outils</li>
+                    <li>Inventaire informatique du site</li>
+                    <li>Mise à jour des groupes d'utilisateurs Teams</li>
+                    <li>Observation de la masterisation et du déploiement des PC</li>
+                </ul>
+            </div>
+        </section>
+    </div>
+
+    <footer>
+        <p>© 2026 Sylvain Natarajan - Portfolio étudiant BTS SIO SISR</p>
+    </footer>
+</body>
+</html>
